@@ -17,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text :description
       t.string :aeroclub
       t.date :licensing
-      t.string :licence_type
+      t.string :license_type
       t.integer :fligh_hours
       t.boolean :profile_completed
 
