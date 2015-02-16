@@ -1,0 +1,21 @@
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="user-profile">
+        <!-- link to profile_picture -->
+        <%= image_tag @user.profile_picture.url(:medium),  class: "img-circle" %>
+        <div class="username"></div>
+          <h2><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h2>
+        <div class="description"></div>
+        <% if @user.pilot == true %>
+          <div class="description">
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
