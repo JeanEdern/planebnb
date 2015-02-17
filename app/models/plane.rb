@@ -2,7 +2,7 @@ class Plane < ActiveRecord::Base
   belongs_to :user
 
   # validation user id (should unique and present)
-  validates :user_id, presence: true, uniqueness: true
+  validates :user_id, presence: true
 
   # validation description (should be present)
   validates :description, presence: true
@@ -13,6 +13,8 @@ class Plane < ActiveRecord::Base
 
   # validation aeroclub (should be present)
   validates :aeroclub, presence: true
+
+  validates :price, presence: true
 
   # validation available (par défaut true)
   validates :available, inclusion: { in: [true, false] }

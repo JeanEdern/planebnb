@@ -1,0 +1,26 @@
+
+<div class="container padded">
+  <div class="row">
+    <div class="col">
+      <h2>Mettre à jour l'annonce</h2>
+
+      <%= simple_form_for(@plane, url: profile_plane_path, :method => :patch, html: { multipart: true }) do |f| %>
+
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :description, required: true, autofocus: true %>
+          <%= f.input :seat, :label => "Places disponibles dans l'avion", collection: 1..20, prompt: "Nombre de places disponibles" %>
+          <%= f.input :aeroclub, :label => "Base au sol - Nom de l'aéroclub", required: true %>
+          <%= f.input :price, :label => "Prix à la journée (euros)", required: true %>
+          <%= f.input :picture, :label => "Photographie de l'avion", required: true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Modifier mon annonce", class: "btn btn-success" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
