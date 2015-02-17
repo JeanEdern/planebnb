@@ -5,15 +5,23 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="user-profile">
         <!-- link to profile_picture -->
-        <%= image_tag @user.profile_picture.url(:medium),  class: "img-circle" %>
-        <div class="username"></div>
-          <h2><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h2>
-        <div class="description"></div>
-        <% if @user.pilot == true %>
-          <div class="description">
-
-          </div>
+        <% if @user.profile_picture_file_name %>
+          <%= "profile pic" %>
+          <%= image_tag @user.profile_picture.url(:medium),  class: "img-circle" %>
+        <% else %>
+          <%= image_tag "http://placehold.it/200x200", class: "img-circle" %>
         <% end %>
+
+        <div class="username"></div>
+        <% if @user.firstname && @user.lastname %>
+          <h2><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h2>
+        <% else %>
+          <h2> Informations de profil </h2>
+          <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-red" %>
+        <% end %>
+
+
+
       </div>
     </div>
   </div>
