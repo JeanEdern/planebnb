@@ -5,7 +5,19 @@ Rails.application.routes.draw do
 
    root to: "homepage#index"
 
-  resources :profiles, only: [:show]
+  # resource :profile, only: [:show] do
+  #   resources :planes, only: [:new, :show, :create, :destroy]
+  # end
+
+  # resources :planes, only: [:show, :edit, :update, :destroy]
+
+## Cecile
+
+  resource :profile, only: [:show] do
+    resources :planes, module: :profiles
+  end
+
+  resources :planes, only: [:index, :show]
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
