@@ -28,19 +28,23 @@ module Profiles
     end
 
     def edit
-      @plane = @user.planes.build(planes_params)
+      @plane = @user.planes.find(params[:id])
     end
 
-    # def update
-    #   @plane = @user.planes.build(planes_params)
-    #   if
-
-    #   else
-
-    #   end
-    # end
+    def update
+      @plane = @user.planes.build(planes_params)
+      if @plane.update_attributes(planes_params)
+        raise
+        redirect_to :action => 'show', :id => @plane
+      else
+        render :action => 'edit'
+      end
+    end
 
     def destroy
+      @plane = @user.planes.find(params[:id])
+      @plane.destroy
+      redirect_to profile_planes_path
     end
 
    private
