@@ -32,10 +32,9 @@ module Profiles
     end
 
     def update
-      @plane = @user.planes.build(planes_params)
+      @plane = @user.planes.find(params[:id])
       if @plane.update_attributes(planes_params)
-        raise
-        redirect_to :action => 'show', :id => @plane
+        redirect_to :action => 'show', :id => @plane.id
       else
         render :action => 'edit'
       end
