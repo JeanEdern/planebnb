@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
   has_many :planes, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :timeoutable
+         :recoverable, :rememberable, :trackable, :validatable, :timeoutable,
+         :omniauthable, :omniauth_providers => [ :facebook ]
 
   has_attached_file :profile_picture,
      styles: { medium: "300x300>", thumb: "100x100>" }
@@ -19,17 +21,36 @@ class User < ActiveRecord::Base
      content_type: /\Aimage\/.*\z/
 
     # validation firstname
-    validates :firstname, presence: true
+    #validates :firstname, presence: true
+
     # validation lastname
-    validates :lastname, presence: true
+    #validates :lastname, presence: true
+
     # validation email
     validates :email, presence: true, uniqueness: true
+
     # validation phone_number
-    validates :phone_number, presence: true, uniqueness: true
+    #validates :phone_number, presence: true, uniqueness: true
+
     # pilot
-    validates :pilot, inclusion: { in: [true, false] }
+    #validates :pilot, inclusion: { in: [true, false] }
+
     # picture
-    validates :profile_picture, presence: true
+    # validates :profile_picture, presence: true
+
     # description
-     validates :description, presence: true, allow_blank: true
+    # validates :description, presence: true, allow_blank: true
+
+    def self.find_for_facebook_oauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]  # Fake password for validation
+        user.name = auth.info.name
+        user.picture = auth.info.image
+        user.token = auth.credentials.token
+        user.token_expiry = Time.at(auth.credentials.expires_at)
+      end
+    end
 end

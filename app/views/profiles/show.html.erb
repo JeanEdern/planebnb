@@ -2,16 +2,20 @@
 
 <div class="container-fluid padded">
   <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
 
     <div class="user-profile">
       <!-- link to profile_picture -->
       <div class="col-sm-2 right">
-        <%= image_tag @user.profile_picture.url(:medium),  class: "img-thumbnail" %>
+        <%= image_tag profile_picture %>
       </div>
 
       <div class="col-sm-10">
         <div class="left-padded">
-          <h1><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h1>
+          <% if @user.firstname %>
+            <h1><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h1>
+          <% end %>
           <%= link_to "Update profile", edit_user_registration_path, class: "btn btn-success" %>
           <br><br>
 

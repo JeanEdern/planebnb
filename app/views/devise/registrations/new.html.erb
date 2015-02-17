@@ -8,12 +8,7 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :firstname, required: true, autofocus: true %>
-          <%= f.input :lastname, required: true, autofocus: true %>
-          <%= f.input :phone_number, required: true, autofocus: true %>
-          <%= f.input :pilot, required: true, autofocus: true %>
-          <%= f.input :description, required: true, autofocus: true %>
-          <%= f.input :profile_picture, required: true %>
+
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
           <%= f.input :password_confirmation, required: true %>
@@ -28,3 +23,22 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '462777563885086',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
