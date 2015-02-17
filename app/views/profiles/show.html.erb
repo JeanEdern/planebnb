@@ -1,29 +1,41 @@
 
 
-<div class="container">
+<div class="container-fluid padded">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <div class="user-profile">
-        <!-- link to profile_picture -->
-        <% if @user.profile_picture_file_name %>
-          <%= "profile pic" %>
-          <%= image_tag @user.profile_picture.url(:medium),  class: "img-circle" %>
-        <% else %>
-          <%= image_tag "http://placehold.it/200x200", class: "img-circle" %>
-        <% end %>
-
-        <div class="username"></div>
-        <% if @user.firstname && @user.lastname %>
-          <h2><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h2>
-        <% else %>
-          <h2> Informations de profil </h2>
-          <%= link_to "Modifier mon profil", edit_user_registration_path, class: "btn btn-red" %>
-        <% end %>
 
 
-
+    <div class="user-profile">
+      <!-- link to profile_picture -->
+      <div class="col-sm-2 right">
+        <%= image_tag @user.profile_picture.url(:medium),  class: "img-thumbnail" %>
       </div>
-    </div>
+
+      <div class="col-sm-10">
+        <div class="left-padded">
+          <h1><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h1>
+          <%= link_to "Update profile", edit_user_registration_path, class: "btn btn-success" %>
+          <br><br>
+
+          <dl class="dl-horizontal">
+            <dt>Email</dt>
+            <dd><%= @user.email %></dd>
+            <dt>Phone number</dt><dd><%= @user.phone_number %></dd>
+            <dt>Pilot</dt><dd>
+              <% if @user.pilot %>
+                <i class="fa fa-check"></i>
+              <% else %>
+                <i class="fa fa-times"></i>
+              <% end %>
+             </dd>
+            <dt>Description</dt><dd><%= @user.description %></dd>
+            <dt>Aeroclub</dt><dd><%= @user.aeroclub %></dd>
+            <dt>Licensing</dt><dd><%= @user.licensing %></dd>
+            <dt>License type</dt><dd><%= @user.license_type %></dd>
+            <dt>Flight hours</dt><dd><%= @user.flight_hours %></dd>
+          </dl>
+        </div>
+      </div>
   </div>
 </div>
 </div>

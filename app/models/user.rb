@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [ :facebook ]
 
   has_attached_file :profile_picture,
-     styles: { medium: "200x200>", thumb: "100x100>" }
+     styles: { medium: "300x300>", thumb: "100x100>" }
 
    validates_attachment_content_type :profile_picture,
      content_type: /\Aimage\/.*\z/
