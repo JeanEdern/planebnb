@@ -9,14 +9,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
-<%= render 'devise/shared/navbar_with_login' %>
+  <%= render 'devise/shared/navbar_with_login' %>
 
-<%= yield %>
-
-<%= render 'devise/shared/footer' %>
+  <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+  </div>
+  <%= render 'devise/shared/footer' %>
 
 </body>
 </html>
