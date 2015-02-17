@@ -19,17 +19,17 @@ class User < ActiveRecord::Base
      content_type: /\Aimage\/.*\z/
 
     # validation firstname
-    validates :firstname, presence: true
+    #validates :firstname, presence: true
     # validation lastname
-    validates :lastname, presence: true
+    #validates :lastname, presence: true
     # validation email
     validates :email, presence: true, uniqueness: true
     # validation phone_number
-    validates :phone_number, presence: true, uniqueness: true
+    #validates :phone_number, presence: true, uniqueness: true
     # pilot
-    validates :pilot, inclusion: { in: [true, false] }
+    #validates :pilot, inclusion: { in: [true, false] }
     # picture
-    validates :profile_picture, presence: true
+    # validates :profile_picture, presence: true
     # description
-     validates :description, presence: true, allow_blank: true
+    # validates :description, presence: true, allow_blank: true
 end
