@@ -1,2 +1,3 @@
 class PlanesController < ApplicationController
+
 end

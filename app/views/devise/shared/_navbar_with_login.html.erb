@@ -12,6 +12,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <%= current_user.email %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
           <li>
             <%= link_to "#" do %>
               <i class="fa fa-envelope-o"></i> Messages
@@ -19,7 +21,8 @@
           </li>
           <li class="dropdown">
             <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <%= image_tag current_user.profile_picture.url(:thumb), class: "img-avatar" %>
+              <%= image_tag profile_picture(:thumb),  class: "img-avatar" %>
+              <%#= image_tag current_user.profile_picture.url(:thumb), class: "img-avatar" %>
               Profile <span class="caret"></span>
             <% end %>
             <ul class="dropdown-menu" role="menu">
@@ -41,6 +44,7 @@
             </ul>
           </li>
         <% else %>
+          <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
           <li>
             <%= link_to "Inscription", new_user_registration_path %>
           </li>
