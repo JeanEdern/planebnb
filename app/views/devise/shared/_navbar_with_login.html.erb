@@ -36,8 +36,13 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to "#" do %>
+                <%= link_to profile_bookings_path do %>
                   <i class="fa fa-check-circle"></i> Mes réservations
+                <% end %>
+              </li>
+              <li>
+                <%= link_to bookings_path do %>
+                  <i class="fa fa-suitcase"></i> Mes Voyages
                 <% end %>
               </li>
               <li>
@@ -59,7 +64,9 @@
         <li>
           <%= link_to "PUBLIER UNE ANNONCE", new_profile_plane_path, class: "btn btn-red" %>
         </li>
-
+        <li>
+          <%= link_to "RESERVER UN AVION", planes_path, class: "btn btn-blue" %>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
