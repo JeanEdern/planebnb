@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-sm-2 right">
+        <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+      <div>
+        <ul class="list-inline list-unstyle">
+          <li><%= link_to "Réserver", "#", class: "btn btn-primary" %></li>
+        </ul>
+      </div>
+
+      <div class="card bg-white">
+        <blockquote>
+          <p> <%= plane.description.capitalize %></p>
+        </blockquote>
+      </div>
+
+      <table class="table table-striped">
+        <tr>
+          <td>Aeroclub de base</td>
+          <td><%= plane.aeroclub %></td>
+        </tr>
+        <tr>
+          <td>Nombre de sièges</td>
+          <td>
+            <% plane.seat.times do %>
+              <i class="fa fa-male"></i>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Prix de réservation (indicatif)</td>
+          <td><%= plane.price %> <i class="fa fa-eur"></i> </td>
+        </tr>
+        <tr>
+          <td>Avion enregistré depuis</td>
+          <td><%= plane.created_at.strftime("%m %B %Y") %></td>
+        </tr>
+        <tr>
+          <td>Dernière mise à jour de l'annonce</td>
+          <td><%= plane.updated_at.strftime("%m %B %Y") %></td>
+        </tr>
+      </table>
+
+      <!-- description -->
+      <!-- seats -->
+      <!-- picture -->
+      <!-- aeroclub -->
+      <!-- price -->
+    </div>
+  </div>

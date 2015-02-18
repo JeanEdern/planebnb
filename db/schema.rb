@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20150217141348) do
     t.string   "aeroclub"
     t.date     "licensing"
     t.string   "license_type"
-    t.integer  "flight_hours"
+    t.integer  "fligh_hours"
     t.boolean  "profile_completed"
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",                default: 0,  null: false
