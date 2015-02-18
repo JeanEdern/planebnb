@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
     # validation email
     validates :email, presence: true, uniqueness: true
 
+    after_create :send_welcome_email
+
     # validation phone_number
     #validates :phone_number, presence: true, uniqueness: true
 
@@ -40,6 +42,11 @@ class User < ActiveRecord::Base
 
     # description
     # validates :description, presence: true, allow_blank: true
+    private
+
+    def send_welcome_email
+        UserMailer.welcome(self).deliver
+    end
 
     def self.find_for_facebook_oauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
