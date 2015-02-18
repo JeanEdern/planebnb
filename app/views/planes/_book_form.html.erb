@@ -3,15 +3,29 @@
 <%= simple_form_for(@booking, url:  bookings_path, html: { class: 'form-inline' }) do |f| %>
 
   <%= f.error_notification %>
+  <%= f.input :plane_id, as: :hidden, input_html: { value: plane.id } %>
+  <%= f.input :people, label: false, collection: 1..20, prompt: "personnes" %>
 
-  <div class="form-inputs">
-    <%= f.input :plane_id, as: :hidden, :input_html => { :value => plane.id } %>
-    <%= f.input :people, :label => "Personnes", collection: 1..20 %>
-    <%= f.input :check_in, :label => "Check in", required: true %>
-    <%= f.input :check_out, :label => "Check out", required: true %>
+<!--   <div class="input-daterange" id="datepicker">
+      <% f.input :check_in, label: false, as: :string, placeholder: "Check in", required: true, input_html: { class:  "datepicker"}  %>
+      <span class="input-group-addon">to</span>
+      <% f.input :check_out, label: false,placeholder: "Check out",  as: :string, required: true, input_html: { class:  "datepicker"}  %>
+  </div> -->
+
+  <div class="input-daterange input-group" id="datepicker">
+    <input type="text" placeholder="Check in" class="input-sm form-control" name="booking[check_in]" />
+    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+    <input type="text"  placeholder="Check out" class="input-sm form-control" name="booking[check_out]" />
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Réserver", class: "btn btn-success" %>
-  </div>
+  <%= f.button :submit, "Réserver", class: "btn btn-success" %>
+<% end %>
+
+
+<%= content_for(:after_js) do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.input-daterange').datepicker();
+    });
+  </script>
 <% end %>
