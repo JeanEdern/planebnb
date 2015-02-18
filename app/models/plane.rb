@@ -1,5 +1,6 @@
 class Plane < ActiveRecord::Base
   belongs_to :user
+  has_many :bookings, dependent: :destroy
 
   # validation user id (should unique and present)
   validates :user_id, presence: true

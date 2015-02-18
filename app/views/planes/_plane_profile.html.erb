@@ -5,7 +5,7 @@
     <div class="col-md-7 col-md-offset-1">
       <div>
         <ul class="list-inline list-unstyle">
-          <li><%= link_to "Réserver", "#", class: "btn btn-primary" %></li>
+          <li> <%= render 'book_form', booking: @booking, plane: plane %> </li>
         </ul>
       </div>
 
@@ -34,11 +34,11 @@
         </tr>
         <tr>
           <td>Avion enregistré depuis</td>
-          <td><%= plane.created_at.strftime("%m %B %Y") %></td>
+          <td><%= plane.created_at.strftime("%d %B %Y") %></td>
         </tr>
         <tr>
           <td>Dernière mise à jour de l'annonce</td>
-          <td><%= plane.updated_at.strftime("%m %B %Y") %></td>
+          <td><%= plane.updated_at.strftime("%d %B %Y") %></td>
         </tr>
       </table>
 

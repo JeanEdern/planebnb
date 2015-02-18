@@ -13,11 +13,15 @@ Rails.application.routes.draw do
 
 ## Cecile
 
+  # Singular resources on profile (to get rid of user_id)
   resource :profile, only: [:show] do
     resources :planes, module: :profiles
+    resources :bookings, only: [:index], module: :profiles
   end
 
   resources :planes, only: [:index, :show]
+
+  resources :bookings, only: [:create, :index], module: :users
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

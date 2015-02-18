@@ -1,0 +1,17 @@
+
+
+<%= simple_form_for(@booking, url:  bookings_path, html: { class: 'form-inline' }) do |f| %>
+
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :plane_id, as: :hidden, :input_html => { :value => plane.id } %>
+    <%= f.input :people, :label => "Personnes", collection: 1..20 %>
+    <%= f.input :check_in, :label => "Check in", required: true %>
+    <%= f.input :check_out, :label => "Check out", required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Réserver", class: "btn btn-success" %>
+  </div>
+<% end %>
