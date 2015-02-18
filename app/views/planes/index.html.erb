@@ -1,5 +1,5 @@
 <div class="container padded">
   <% @planes.each do |plane| %>
-    <%= render 'plane_profile', plane: plane %>
+    <%= render 'plane_profile', plane: plane, booking: @booking %>
   <% end %>
 </div>
