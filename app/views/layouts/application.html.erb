@@ -9,13 +9,16 @@
 </head>
 <body>
 
-  <%= render 'devise/shared/navbar_with_login' %>
+  <div id="wrapper">
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+    <%= render 'devise/shared/navbar_with_login' %>
 
-  <%= render 'devise/shared/footer' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+
+    <%= render 'devise/shared/footer' %>
+  </div>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= yield(:after_js) %>
