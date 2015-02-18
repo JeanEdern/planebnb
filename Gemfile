@@ -21,7 +21,7 @@ gem 'omniauth-facebook', '~> 2.0.0'
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
 
-
+gem "letter_opener", group: :development
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
