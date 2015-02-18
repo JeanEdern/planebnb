@@ -1,5 +1,5 @@
 class PlanesController < ApplicationController
-  # Plane...
+  # Skip authentication for this controller
 
   def index
   end
