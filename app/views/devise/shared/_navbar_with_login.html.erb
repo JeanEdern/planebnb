@@ -4,7 +4,6 @@
     <div class="navbar-header">
       <ul class="list-inline list-unstyled">
         <li><a class="navbar-brand" href="/">Home</a></li>
-        <li> <a class="navbar-brand" href="#">Réserver un avion</a></li>
       </ul>
     </div>
 
@@ -31,13 +30,18 @@
                 <% end %>
               </li>
               <li>
+                <%= link_to profile_planes_path do %>
+                  <i class="fa fa-plane"></i> Mes avions
+                <% end %>
+              </li>
+              <li>
                 <%= link_to "#" do %>
-                  <i class="fa fa-plane"></i> Planes
+                  <i class="fa fa-check-circle"></i> Mes réservations
                 <% end %>
               </li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out"></i> Sign Out
+                  <i class="fa fa-sign-out"></i> Déconnexion
                 <% end %>
               </li>
             </ul>

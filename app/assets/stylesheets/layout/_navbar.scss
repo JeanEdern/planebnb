@@ -121,6 +121,8 @@ $navbar-profile-border-width: 2px;
   .navbar-nav > li > .dropdown-menu{
     border-radius: 0;
     margin-top: 10px;
+    left: -50px;
+    right: auto;
   }
 
   .navbar-nav > li > .dropdown-menu:before{

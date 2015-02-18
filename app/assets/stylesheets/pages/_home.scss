@@ -1,0 +1,19 @@
+.search {
+  position: absolute;
+  z-index: 1000;
+  display: flex;
+  left: 590px;
+  bottom: 40px;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.search:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+#video {
+
+}
+
