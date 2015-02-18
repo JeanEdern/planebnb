@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :planes, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable,
          :omniauthable, :omniauth_providers => [ :facebook ]

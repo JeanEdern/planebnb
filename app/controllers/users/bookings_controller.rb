@@ -3,7 +3,7 @@ module Users
     before_action :find_user
 
     def index
-
+      @bookings = @user.bookings
     end
 
     def new

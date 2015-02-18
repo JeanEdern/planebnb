@@ -1,0 +1,8 @@
+
+<div class="container padded">
+  <% @bookings.each do |bookings| %>
+    <% bookings.each do |booking| %>
+      <%= render 'booking_profile', booking: booking %>
+    <% end %>
+  <% end %>
+</div>
