@@ -20,7 +20,9 @@
 <%= content_for(:after_js) do %>
   <script type="text/javascript">
     $(document).ready(function(){
-      $('.input-daterange').datepicker();
+      $('.input-daterange').datepicker({
+        format: 'dd-mm-yyyy'
+      });
     });
   </script>
 <% end %>
