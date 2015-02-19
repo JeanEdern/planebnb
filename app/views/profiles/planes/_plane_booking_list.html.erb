@@ -1,0 +1,13 @@
+
+<div class="row">
+    <div class="col-sm-2 right">
+        <%= image_tag @plane.picture.url(:medium),  class: "img-thumbnail" %>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+
+      <table class="table table-striped">
+        <%= render 'user_booking' %>
+      </table>
+
+    </div>
+  </div>

@@ -29,10 +29,13 @@ module Profiles
 
     def edit
       @plane = @user.planes.find(params[:id])
+      @bookings = @plane.bookings
     end
 
     def update
       @plane = @user.planes.find(params[:id])
+      @bookings = @plane.bookings
+      raise
       if @plane.update_attributes(planes_params)
         redirect_to :action => 'show', :id => @plane.id
       else
@@ -50,6 +53,7 @@ module Profiles
 
   def planes_params
     params.require(:plane).permit(:description, :seat, :aeroclub, :available, :created_at, :updated_at, :price, :picture)
+    params.require(:booking).permit(:plane_id, :status)
   end
 
   def find_user

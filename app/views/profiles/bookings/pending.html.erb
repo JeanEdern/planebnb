@@ -1,0 +1,14 @@
+<div class="container padded">
+<table>
+   <%= render 'user_booking', bookings: @bookings %>
+</table>
+</div>
+
+<% content_for :after_js do %>
+
+  <script>
+    $(document).ready(function() {
+      $("[name='status-checkbox']").bootstrapSwitch();
+    })
+  </script>
+<% end %>

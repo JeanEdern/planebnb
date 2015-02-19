@@ -1,0 +1,27 @@
+<% n = 0 %>
+<% bookings.each do |booking| %>
+  <tr>
+    <td class = "bg-yellow"><strong>Réservation <%= "#{n + 1}" %> </strong></td>
+    <td> <input type="checkbox" name="status-checkbox" checked></td>
+  </tr>
+  <tr>
+    <td>Date de la réservation</td>
+    <td><%= booking.created_at %></td>
+  </tr>
+  <tr>
+    <td>Date de début de location</td>
+    <td><%= booking.check_in %></td>
+  </tr>
+  <tr>
+    <td>Date de fin de location</td>
+    <td><%= booking.check_out %></td>
+  </tr>
+  <tr>
+    <td>Adresse email de l'utilisateur</td>
+    <td><%= booking.user.email %></td>
+  </tr>
+  <tr>
+    <td>Lien vers le profil de l'utilisateur</td>
+    <td><i class="fa fa-user"></i><%= booking.user.email %></td>
+  </tr>
+<% end %>
