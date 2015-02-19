@@ -14,6 +14,7 @@ class Plane < ActiveRecord::Base
 
   # validation aeroclub (should be present)
   validates :aeroclub, presence: true
+  validates :address, presence: true
 
   validates :price, presence: true
 
@@ -32,11 +33,14 @@ class Plane < ActiveRecord::Base
     styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
-
   # third picture
   has_attached_file :third_picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
 
+
+  geocoded_by :address
+  # voir l'active record lifecycle
+  after_validation :geocode, if: :address_changed?
 end
