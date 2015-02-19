@@ -6,11 +6,6 @@
   <%= f.input :plane_id, as: :hidden, input_html: { value: plane.id } %>
   <%= f.input :people, label: false, collection: 1..20, prompt: "personnes" %>
 
-<!--   <div class="input-daterange" id="datepicker">
-      <% f.input :check_in, label: false, as: :string, placeholder: "Check in", required: true, input_html: { class:  "datepicker"}  %>
-      <span class="input-group-addon">to</span>
-      <% f.input :check_out, label: false,placeholder: "Check out",  as: :string, required: true, input_html: { class:  "datepicker"}  %>
-  </div> -->
 
   <div class="input-daterange input-group" id="datepicker">
     <input type="text" placeholder="Check in" class="input-sm form-control" name="booking[check_in]" />

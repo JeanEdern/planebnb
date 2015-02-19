@@ -5,15 +5,23 @@
 
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :description, required: true, autofocus: true %>
-    <%= f.input :seat, :label => "Places disponibles dans l'avion", collection: 1..20, prompt: "Nombre de places disponibles" %>
-    <%= f.input :aeroclub, :label => "Base au sol - Nom de l'aéroclub", required: true %>
-    <%= f.input :price, :label => "Prix à la journée (euros)", required: true %>
-    <%= f.input :picture, :label => "Photographie de l'avion", required: true %>
-  </div>
+  <%= f.input :description, required: true, autofocus: true %>
+  <%= f.input :seat, :label => "Places disponibles dans l'avion", collection: 1..20, prompt: "Nombre de places disponibles" %>
+  <%= f.input :aeroclub, :label => "Base au sol - Nom de l'aéroclub", required: true %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Publier mon annonce", class: "btn btn-success" %>
-  </div>
+  <%= f.input :address, :label => "Adresse de l'aérodrome",required: true, input_html: {id: "user_input_autocomplete_address", placeholder: "Adresse de l'aérodrome de base"} %>
+
+  <%= f.input :city, readonly: true, :label => "Ville", input_html: {id: "locality", placeholder: "ville"} %>
+
+  <%= f.input :admin_area, readonly: true, :label => "Département", input_html: {id: "administrative_area_level_1", placeholder: "département"} %>
+
+  <%= f.input :price, :label => "Prix à la journée (euros)", required: true %>
+  <%= f.input :picture, :label => "Photographie de l'avion", required: true %>
+
+  <%= f.button :submit, "Publier mon annonce", class: "btn btn-success" %>
+<% end %>
+
+<%= content_for(:before_js) do %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyCEchjv-lKDE8tKplZsEvpTJQKL1R3Lqn4" %>
+  <%= javascript_include_tag "autocomplete.js" %>
 <% end %>
