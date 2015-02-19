@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219102244) do
+ActiveRecord::Schema.define(version: 20150219140610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20150219102244) do
     t.integer  "seat"
     t.string   "aeroclub"
     t.boolean  "available"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 20150219102244) do
     t.string   "city"
     t.string   "admin_area"
     t.string   "address"
+    t.string   "second_picture_file_name"
+    t.string   "second_picture_content_type"
+    t.integer  "second_picture_file_size"
+    t.datetime "second_picture_updated_at"
+    t.string   "third_picture_file_name"
+    t.string   "third_picture_content_type"
+    t.integer  "third_picture_file_size"
+    t.datetime "third_picture_updated_at"
   end
 
   add_index "planes", ["user_id"], name: "index_planes_on_user_id", using: :btree
