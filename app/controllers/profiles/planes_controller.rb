@@ -1,10 +1,10 @@
 module Profiles
   class PlanesController < ApplicationController
     before_action :find_user
-    # current_user.planes...
 
     def index
       @planes = @user.planes
+      @bookings = find_bookings_of_planes
     end
 
     def show
@@ -46,14 +46,23 @@ module Profiles
       redirect_to profile_planes_path
     end
 
-   private
+  private
 
   def planes_params
     params.require(:plane).permit(:description, :seat, :aeroclub, :available, :created_at, :updated_at, :price, :picture)
   end
 
   def find_user
-     @user = current_user
-   end
+    @user = current_user
+  end
+
+  def find_bookings_of_planes
+    bookings =[]
+    @user.planes.each do |plane|
+      bookings << plane.bookings
+    end
+    return bookings
+  end
+
   end
 end

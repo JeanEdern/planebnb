@@ -1,0 +1,11 @@
+<% if @bookings != nil && @bookings.flatten.select {|element| element.plane_id == plane.id }.first != nil && @bookings.flatten.select {|element| element.plane_id == plane.id }.first.status == true %>
+  <tr>
+    <td class="bg-green">
+      <strong>
+        Demandes de réservation
+      </strong>
+    </td>
+    <td class="bg-green">
+      Voir
+  </td>
+<% end %>

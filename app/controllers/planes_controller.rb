@@ -4,7 +4,6 @@ class PlanesController < ApplicationController
 
   def index
     @planes=Plane.all
-    # @booking = @pl.planes.build
     @booking = Booking.new
   end
 
