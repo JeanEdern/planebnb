@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218095944) do
+ActiveRecord::Schema.define(version: 20150219103702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20150218095944) do
     t.string   "aeroclub"
     t.date     "licensing"
     t.string   "license_type"
-    t.integer  "flight_hours"
+    t.integer  "fligh_hours"
     t.boolean  "profile_completed"
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",                default: 0,  null: false
