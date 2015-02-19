@@ -3,7 +3,9 @@ class PlanesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
-    @planes=Plane.all
+    @address = params['user_input_autocomplete_address']
+    @range = params['range'].to_i
+    @planes=Plane.near(@address, @range)
     # @booking = @pl.planes.build
     @booking = Booking.new
 

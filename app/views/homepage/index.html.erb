@@ -1,11 +1,28 @@
+
 <div class = "bg-black" id = "video">
   <video autoplay="autoplay" muted="muted" width="100%" preload="auto" loop>
     <source src="http://mazwai.com/system/posts/videos/000/000/121/original/jedd-goble--big_shorts_pro_velocity.mp4?1412888128#t=0,9.6" type="video/mp4">
   </video>
 </div>
-<div class="text-center height-none">
-  <%= link_to "Réserver un avion", planes_path, class: "btn btn-red search" %>
-</div>
-<div class = "bg-black size_home">
 
+<div class="text-center height-none search">
+
+      <h1>Cherchez un avion partout en France ! </h1>
+      <h3>Planebnb, le leader de la location d'avion entre particuliers </h3>
+      <br><br>
+      <%= form_tag planes_path, method: :get , class: 'form-inline' do %>
+        <%= text_field_tag :user_input_autocomplete_address, nil, { class: 'form-control'} %>
+        <%= select_tag :range, options_for_select((0..1000).step(10).to_a), { class: 'form-control', prompt: "Rayon de recherche?"} %>
+        <%= submit_tag "Décollage!", { class: 'btn btn-primary' } %>
+      <% end %>
 </div>
+
+
+<div class = "bg-black size_home">
+</div>
+
+
+<%= content_for(:before_js) do %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&key=AIzaSyCEchjv-lKDE8tKplZsEvpTJQKL1R3Lqn4" %>
+  <%= javascript_include_tag "autocomplete.js" %>
+<% end %>
