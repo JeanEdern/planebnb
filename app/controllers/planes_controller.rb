@@ -6,10 +6,17 @@ class PlanesController < ApplicationController
     @planes=Plane.all
     # @booking = @pl.planes.build
     @booking = Booking.new
+
+    # Let's DYNAMICALLY build the markers for the view.
+    @markers = Gmaps4rails.build_markers(@planes) do |plane, marker|
+      marker.lat plane.latitude
+      marker.lng plane.longitude
+    end
   end
 
   def show
     @plane = Plane.find(params[:id])
+    @plane_coordinates = { lat: @plane.latitute, lng: @plane.longitude }
   end
 
   private
