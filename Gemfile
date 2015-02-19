@@ -17,6 +17,8 @@ gem 'paperclip'
 gem 'devise', '~> 3.4.1'
 gem 'omniauth-facebook', '~> 2.0.0'
 
+gem "geocoder"
+
 
 gem 'better_errors', group: :development
 gem 'binding_of_caller', group: :development
