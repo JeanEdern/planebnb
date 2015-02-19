@@ -20,9 +20,23 @@ class Plane < ActiveRecord::Base
   # validation available (par défaut true)
   validates :available, inclusion: { in: [true, false] }
 
+
+  # first picture
   has_attached_file :picture,
     styles: { medium: "300x300>", thumb: "100x100>" }
-
   validates_attachment_content_type :picture,
     content_type: /\Aimage\/.*\z/
+
+  # second picture
+  has_attached_file :second_picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :picture,
+    content_type: /\Aimage\/.*\z/
+
+  # third picture
+  has_attached_file :third_picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :picture,
+    content_type: /\Aimage\/.*\z/
+
 end
