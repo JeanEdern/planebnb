@@ -30,9 +30,12 @@
         <td>Date de check in</td>
         <td><%= booking.check_in.strftime("%d %B %Y") %></td>
       </tr>
-       <tr>
+      <tr>
         <td>Date de check out</td>
         <td><%= booking.check_out.strftime("%d %B %Y") %></td>
+      </tr>
+      <tr>
+          <%= render 'booking_status', booking: booking %>
       </tr>
     </table>
   </div>
