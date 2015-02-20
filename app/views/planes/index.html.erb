@@ -10,6 +10,9 @@
           markers = handler.addMarkers(<%= raw @markers.to_json %>);
           handler.bounds.extendWith(markers);
           handler.fitMapToBounds();
+          <% if @markers.count == 1 %>
+            handler.getMap().setZoom(12);
+          <% end %>
         });
       })
     <% end %>
