@@ -1,32 +1,28 @@
 <div class="row">
-    <div class="col-sm-2 right">
-      <div class="carousel slide">
+    <div class="col-sm-3 right">
+      <div id="carousel" class="carousel slide">
         <div class="carousel-inner">
           <div class="item active">
-            <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+            <%= image_tag plane.picture.url(:medium) %>
             <div class="carousel-caption"></div>
           </div>
-          <div class="item">
+          <% if plane.second_picture? || plane.third_picture? %>
             <% if plane.second_picture? %>
-            <%= image_tag plane.second_picture.url(:medium),  class: "img-thumbnail" %>
-            <% else %>
-            <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+              <div class="item">
+                <%= image_tag plane.second_picture.url(:medium) %>
+              </div>
             <% end %>
-          </div>
-          <div class="item">
             <% if plane.third_picture? %>
-            <%= image_tag plane.third_picture.url(:medium),  class: "img-thumbnail" %>
-            <% else %>
-            <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+              <div class="item">
+                <%= image_tag plane.third_picture.url(:medium) %>
+              </div>
             <% end %>
-          </div>
+            <a class="right carousel-control" href="#carousel" data-slide="next" onclick="$('#carousel').carousel('next')"></a>
+            <a class="left carousel-control" href="#carousel" data-slide="prev" onclick="$('#carousel').carousel('prev')"></a>
+          <% end %>
         </div>
       </div>
 
-
-<!--
-      <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
- -->
     </div>
     <div class="col-md-7 col-md-offset-1">
       <div>
