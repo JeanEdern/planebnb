@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get "/planes/:plane_id/bookings/pending", to: "profiles/bookings#pending", as: "pending"
 
+  patch "/planes/:plane_id/bookings/validate_booking", to: "profiles/bookings#validate_booking", as: "validate"
+
   resources :bookings, only: [:create, :index], module: :users
 
   # You can have the root of your site routed with "root"

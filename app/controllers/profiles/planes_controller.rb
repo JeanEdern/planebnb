@@ -5,7 +5,6 @@ module Profiles
     def index
       @planes = @user.planes
       @bookings = find_bookings_of_planes
-
       # Let's DYNAMICALLY build the markers for the view.
       @markers = Gmaps4rails.build_markers(@planes) do |plane, marker|
         marker.lat plane.latitude

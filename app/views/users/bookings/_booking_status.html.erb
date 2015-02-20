@@ -1,0 +1,28 @@
+<% if booking.status == nil %>
+  <td class="bg-yellow">
+    <strong>Statut de la réservation</strong>
+
+  </td>
+  <td class="bg-yellow">
+    <strong> En attente</strong>
+
+  </td>
+<% elsif booking.status == true %>
+  <td class="bg-green">
+    <strong>Statut de la réservation</strong>
+
+  </td>
+   <td class="bg-green">
+      <strong>Acceptée</strong>
+
+  <td class="bg-green"></td>
+<% else %>
+ <td class="bg-red">
+   <strong>
+      Statut de la réservation
+   </strong>
+ </td>
+  <td class="bg-red">
+    <strong> Refusée</strong>
+  </td>
+<% end %>
