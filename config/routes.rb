@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   get "/bonus", to: "homepage#bonus", as: "bonus"
 
+  get '/404', :to => 'errors#not_found'
+
 
 
 
