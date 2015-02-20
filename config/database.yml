@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: planebnb_production
-  username: planebnb
-  password: <%= ENV['PLANEBNB_DATABASE_PASSWORD'] %>
