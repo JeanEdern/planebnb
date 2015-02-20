@@ -15,7 +15,7 @@ module Profiles
    private
 
     def find_user
-       @user = current_user
+      @user = current_user
     end
 
     def find_bookings

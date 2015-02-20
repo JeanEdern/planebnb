@@ -18,8 +18,14 @@
     <div class="col-md-7 col-md-offset-1">
       <table class="table table-striped">
         <tr>
-          <td class = "bg-yellow"><strong>Réservation <%= "#{n + 1}" %> </strong></td>
-          <td> <input type="checkbox" name="status-checkbox" checked></td>
+            <td>
+              <strong>
+                Réservation <%= "#{n += 1}" %>
+              </strong>
+            </td>
+          <td>
+            <input type="checkbox" name="status-checkbox" checked>
+          </td>
         </tr>
         <tr>
           <td>Date de la réservation</td>
