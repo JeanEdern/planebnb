@@ -53,11 +53,35 @@
         </tr>
         <tr>
           <td>Lien vers le profil de l'utilisateur</td>
-          <td><i class="fa fa-external-link"></i></td>
+          <td>
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+              Voir
+            </button>
+          </td>
         </tr>
       </table>
     </div>
 
   </div>
+
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Profil de <%= booking.user.firstname %>&nbsp;<%= booking.user.lastname %></h4>
+        </div>
+        <div class="modal-body">
+          <ul class="unstyled">
+            <li>Aeroclub: <%= booking.user.aeroclub %></li>
+            <li>Heures de vol: <%= booking.user.fligh_hours %></li>
+            <li>Présentation: <%= booking.user.description %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 <% end %>
