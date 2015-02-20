@@ -1,27 +1,49 @@
 <% n = 0 %>
 <% bookings.each do |booking| %>
-  <tr>
-    <td class = "bg-yellow"><strong>Réservation <%= "#{n + 1}" %> </strong></td>
-    <td> <input type="checkbox" name="status-checkbox" checked></td>
-  </tr>
-  <tr>
-    <td>Date de la réservation</td>
-    <td><%= booking.created_at %></td>
-  </tr>
-  <tr>
-    <td>Date de début de location</td>
-    <td><%= booking.check_in %></td>
-  </tr>
-  <tr>
-    <td>Date de fin de location</td>
-    <td><%= booking.check_out %></td>
-  </tr>
-  <tr>
-    <td>Adresse email de l'utilisateur</td>
-    <td><%= booking.user.email %></td>
-  </tr>
-  <tr>
-    <td>Lien vers le profil de l'utilisateur</td>
-    <td><i class="fa fa-user"></i><%= booking.user.email %></td>
-  </tr>
+
+  <div class="row">
+
+    <div class="col-sm-2 right">
+        <% if booking.user.uid %>
+          <%= image_tag booking.user.picture.url(:medium),  class: "img-thumbnail" %>
+      <% else %>
+        <% if booking.user.profile_picture_file_name %>
+            <%= image_tag booking.user.profile_picture.url(:medium),  class: "img-thumbnail" %>
+          <% else %>
+            <%= image_tag "pilot_navbar.svg" %>
+          <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-md-7 col-md-offset-1">
+      <table class="table table-striped">
+        <tr>
+          <td class = "bg-yellow"><strong>Réservation <%= "#{n + 1}" %> </strong></td>
+          <td> <input type="checkbox" name="status-checkbox" checked></td>
+        </tr>
+        <tr>
+          <td>Date de la réservation</td>
+          <td><%= booking.created_at %></td>
+        </tr>
+        <tr>
+          <td>Date de début de location</td>
+          <td><%= booking.check_in %></td>
+        </tr>
+        <tr>
+          <td>Date de fin de location</td>
+          <td><%= booking.check_out %></td>
+        </tr>
+        <tr>
+          <td>Adresse email de l'utilisateur</td>
+          <td><%= booking.user.email %></td>
+        </tr>
+        <tr>
+          <td>Lien vers le profil de l'utilisateur</td>
+          <td><i class="fa fa-external-link"></i></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+
 <% end %>
