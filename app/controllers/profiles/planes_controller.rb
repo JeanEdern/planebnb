@@ -54,7 +54,7 @@ module Profiles
    private
 
   def planes_params
-    params.require(:plane).permit(:description, :seat, :aeroclub, :available, :created_at, :updated_at, :price, :picture, :city, :admin_area, :address, :latitude, :longitude)
+    params.require(:plane).permit(:description, :seat, :aeroclub, :available, :created_at, :updated_at, :price, :picture, :second_picture, :third_picture, :city, :admin_area, :address, :latitude, :longitude)
   end
 
   def find_user

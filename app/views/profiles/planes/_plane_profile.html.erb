@@ -1,6 +1,41 @@
 <div class="row">
     <div class="col-sm-2 right">
+
+      <div class="carousel slide">
+        <div class="carousel-inner">
+          <div class="item active">
+            <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+            <div class="carousel-caption"></div>
+          </div>
+          <div class="item">
+            <% if plane.second_picture? %>
+            <%= image_tag plane.second_picture.url(:medium),  class: "img-thumbnail" %>
+            <% else %>
+            <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+            <% end %>
+          </div>
+          <div class="item">
+            <% if plane.third_picture? %>
+            <%= image_tag plane.third_picture.url(:medium),  class: "img-thumbnail" %>
+            <% else %>
+            <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- <ul class="list-unstyled">
+        <li>
         <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+        </li>
+        <li>
+        <%= image_tag plane.second_picture.url(:medium),  class: "img-thumbnail" %>
+        </li>
+        <li>
+        <%= image_tag plane.third_picture.url(:medium),  class: "img-thumbnail" %>
+        </li>
+      </ul> -->
     </div>
     <div class="col-md-7 col-md-offset-1">
       <div>
@@ -48,3 +83,4 @@
       </table>
     </div>
   </div>
+

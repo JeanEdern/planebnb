@@ -20,9 +20,13 @@
         <%= f.input :admin_area, disabled: true, :label => "Département", input_html: {id: "administrative_area_level_1", placeholder: "département"} %>
 
         <%= f.input :price, :label => "Prix à la journée (euros)", required: true %>
-        <%= f.input :picture, :label => "Photographie de l'avion", required: true %>
+        <%= f.input :picture, :label => "Photo principale de l'avion", required: true %>
 
-        <%= f.button :submit, "Publier mon annonce", class: "btn btn-success" %>
+        <%= f.input :second_picture, :label => "Ajoutez une photo supplémentaire", required: false %>
+
+        <%= f.input :third_picture, :label => "Ajoutez une photo supplémentaire", required: false %>
+
+        <%= f.button :submit, "Mettre à jour mon annonce", class: "btn btn-success" %>
       <% end %>
     </div>
   </div>
