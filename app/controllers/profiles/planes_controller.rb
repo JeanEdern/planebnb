@@ -39,7 +39,6 @@ module Profiles
     def update
       @plane = @user.planes.find(params[:id])
       @bookings = @plane.bookings
-      raise
       if @plane.update_attributes(planes_params)
         redirect_to :action => 'show', :id => @plane.id
       else
