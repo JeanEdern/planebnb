@@ -24,8 +24,16 @@
               </strong>
             </td>
           <td>
-            <input type="checkbox" name="status-checkbox" checked>
+            <%= form_for(booking, url:  validate_path, html: { class: 'form-inline' }) do |f| %>
+
+              <input type="checkbox" name="status-checkbox" class="form-control" checked>
+               <%= f.hidden_field :id, value: "#{booking.id}" %>
+              <input type="submit" value="Valider" class="form-control">
+            <% end %>
           </td>
+        </tr>
+        <tr>
+            <%= render 'booking_status', booking: booking %>
         </tr>
         <tr>
           <td>Date de la réservation</td>

@@ -12,10 +12,27 @@ module Profiles
       @bookings = @plane.bookings
     end
 
+    def validate_booking
+      @booking = Booking.find(params["booking"]["id"].to_i)
+      if params['status-checkbox'] == "on"
+        @booking.status = true
+        @booking.save
+      else
+        @booking.status = false
+        @booking.save
+      end
+      @bookings = find_bookings
+      redirect_to pending_path
+    end
+
    private
 
     def find_user
       @user = current_user
+    end
+
+    def booking_params
+      params.require(:booking).permit(:status)
     end
 
     def find_bookings

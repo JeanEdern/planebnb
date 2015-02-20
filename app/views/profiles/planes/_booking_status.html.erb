@@ -1,4 +1,4 @@
-<% if @bookings != nil && @bookings.flatten.select {|element| element.plane_id == plane.id }.first != nil && @bookings.flatten.select {|element| element.plane_id == plane.id }.first.status == true %>
+<% if @bookings != nil && @bookings.flatten.select {|element| element.plane_id == plane.id }.first != nil %>
   <tr>
     <td class="bg-green">
       <strong>
