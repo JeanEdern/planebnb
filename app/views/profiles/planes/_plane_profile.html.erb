@@ -1,93 +1,123 @@
 <div class="row">
-    <div class="col-sm-3 right">
 
-      <div id="carousel" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="item active">
-            <%= image_tag plane.picture.url(:medium) %>
-            <div class="carousel-caption"></div>
-          </div>
-          <% if plane.second_picture? || plane.third_picture? %>
-            <% if plane.second_picture? %>
-              <div class="item">
-                <%= image_tag plane.second_picture.url(:medium) %>
-              </div>
-            <% end %>
-            <% if plane.third_picture? %>
-              <div class="item">
-                <%= image_tag plane.third_picture.url(:medium) %>
-              </div>
-            <% end %>
-            <a class="right carousel-control" href="#carousel" data-slide="next" onclick="$('#carousel').carousel('next')"></a>
-            <a class="left carousel-control" href="#carousel" data-slide="prev" onclick="$('#carousel').carousel('prev')"></a>
-          <% end %>
+  <div class="col-sm-3 right">
+    <div id="carousel<%= plane.id %>" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <a href="#myModal<%= plane.id %>" data-toggle="modal", data-target="#myModal<%= plane.id %>">
+          <%= image_tag plane.picture.url(:medium) %>
+          </a>
+          <div class="carousel-caption"></div>
         </div>
+        <% if plane.second_picture? || plane.third_picture? %>
+          <% if plane.second_picture? %>
+            <div class="item">
+              <a href="#myModal<%= plane.id %>" data-toggle="modal", data-target="#myModal<%= plane.id %>">
+                <%= image_tag plane.second_picture.url(:medium) %>
+              </a>
+            </div>
+          <% end %>
+          <% if plane.third_picture? %>
+            <div class="item">
+              <a href="#myModal<%= plane.id %>" data-toggle="modal", data-target="#myModal<%= plane.id %>">
+                <%= image_tag plane.third_picture.url(:medium) %>
+              </a>
+            </div>
+          <% end %>
+          <a class="right carousel-control" href="#carousel<%= plane.id %>" data-slide="next" onclick="$('#carousel').carousel('next')"></a>
+          <a class="left carousel-control" href="#carousel<%= plane.id %>" data-slide="prev" onclick="$('#carousel').carousel('prev')"></a>
+        <% end %>
       </div>
-
-      <!-- <ul class="list-inline list-unstyled">
-        <li>
-        <%= image_tag plane.picture.url(:medium), alt: "Photo principale" %>
-        </li>
-        <% if plane.second_picture? %>
-        <li>
-        <%= image_tag plane.second_picture.url(:medium) %>
-        </li>
-        <% end %>
-        <% if plane.third_picture? %>
-        <li>
-        <%= image_tag plane.third_picture.url(:medium) %>
-        </li>
-        <% end %>
-      </ul> -->
     </div>
+  </div>
 <!-- </div>
 <div class="row"> -->
 
-    <div class="col-md-7 col-md-offset-1">
-      <div>
-        <ul class="list-inline list-unstyle">
-          <li><%= link_to "Mettre à jour l'annonce", edit_profile_plane_path(plane), class: "btn btn-primary" %></li>
-          <li><%= link_to "Supprimer l'annonce", profile_plane_path(plane), class: "btn btn-danger", method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer définitivement l'annonce?" } %></li>
-        </ul>
-      </div>
-
-      <div class="card bg-white">
-        <blockquote>
-          <p> <%= plane.description %></p>
-        </blockquote>
-      </div>
-
-      <table class="table table-striped">
-        <tr>
-          <td>Aeroclub de base</td>
-          <td><%= plane.aeroclub %></td>
-        </tr>
-        <tr>
-          <td>Aérodrome</td>
-          <td><%= plane.address %></td>
-        </tr>
-        <tr>
-          <td>Nombre de sièges</td>
-          <td>
-            <% plane.seat.times do %>
-              <i class="fa fa-male"></i>
-            <% end %>
-          </td>
-        </tr>
-        <%= render 'booking_status', plane: plane %>
-        <tr>
-          <td>Prix de réservation (indicatif)</td>
-          <td><%= plane.price %> <i class="fa fa-eur"></i> </td>
-        </tr>
-        <tr>
-          <td>Avion enregistré depuis</td>
-          <td><%= plane.created_at.strftime("%d %B %Y") %></td>
-        </tr>
-        <tr>
-          <td>Dernière mise à jour de l'annonce</td>
-          <td><%= plane.updated_at.strftime("%d %B %Y") %></td>
-        </tr>
-      </table>
+  <div class="col-md-7 col-md-offset-1">
+    <div>
+      <ul class="list-inline list-unstyle">
+        <li><%= link_to "Mettre à jour l'annonce", edit_profile_plane_path(plane), class: "btn btn-primary" %></li>
+        <li><%= link_to "Supprimer l'annonce", profile_plane_path(plane), class: "btn btn-danger", method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer définitivement l'annonce?" } %></li>
+      </ul>
     </div>
-  </div>
 
+    <div class="card bg-white">
+      <blockquote>
+        <p> <%= plane.description %></p>
+      </blockquote>
+    </div>
+
+    <table class="table table-striped">
+      <tr>
+        <td>Aeroclub de base</td>
+        <td><%= plane.aeroclub %></td>
+      </tr>
+      <tr>
+        <td>Aérodrome</td>
+        <td><%= plane.address %></td>
+      </tr>
+      <tr>
+        <td>Nombre de sièges</td>
+        <td>
+          <% plane.seat.times do %>
+            <i class="fa fa-male"></i>
+          <% end %>
+        </td>
+      </tr>
+      <%= render 'booking_status', plane: plane %>
+      <tr>
+        <td>Prix de réservation (indicatif)</td>
+        <td><%= plane.price %> <i class="fa fa-eur"></i> </td>
+      </tr>
+      <tr>
+        <td>Avion enregistré depuis</td>
+        <td><%= plane.created_at.strftime("%d %B %Y") %></td>
+      </tr>
+      <tr>
+        <td>Dernière mise à jour de l'annonce</td>
+        <td><%= plane.updated_at.strftime("%d %B %Y") %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="myModal<%= plane.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="">
+      <div class="modal-body">
+        <div id="big-carousel<%= plane.id %>" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="item active">
+
+              <%= image_tag plane.picture, width: "570px"  %>
+
+            <div class="carousel-caption"></div>
+            </div>
+            <% if plane.second_picture? || plane.third_picture? %>
+              <% if plane.second_picture? %>
+                <div class="item">
+
+                  <%= image_tag plane.second_picture, width: "570px" %>
+
+                </div>
+              <% end %>
+              <% if plane.third_picture? %>
+                <div class="item">
+
+                  <%= image_tag plane.third_picture, width: "570px" %>
+
+                </div>
+              <% end %>
+              <a class="right carousel-control" href="#big-carousel<%= plane.id %>" data-slide="next" onclick="$('#big-carousel').carousel('next')"></a>
+              <a class="left carousel-control" href="#big-carousel<%= plane.id %>" data-slide="prev" onclick="$('#big-carousel').carousel('prev')"></a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
