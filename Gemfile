@@ -13,6 +13,8 @@ gem 'figaro'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+gem 'activeadmin', github: 'activeadmin'
+
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
 
