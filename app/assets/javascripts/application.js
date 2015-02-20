@@ -20,3 +20,4 @@
 //= require autocomplete
 //= require carousel
 //= require bootstrap-switch
+//= require wagon_race

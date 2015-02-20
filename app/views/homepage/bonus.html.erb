@@ -1,0 +1,80 @@
+
+    <div>
+      <div class="container">
+        <div class="row">
+          <h1 class="text-center">THE PLANE RACE BITCH</h1>
+        </div>
+        <div class="row text-center">
+            <button class="btn btn-danger">Restart</button>
+        </div>
+      </div>
+    </div>
+
+
+    <hr>
+      <table class="racer_table">
+        <tr id="player1_race">
+          <td class="active"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="final">Arrivée</td>
+        </tr>
+        <tr id="player2_race">
+          <td class="active"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="final">Arrivée</td>
+        </tr>
+      </table>
+    <hr>
+
+
+<%= content_for(:before_js) do %>
+  <%= javascript_include_tag "wagon_race.js" %>
+<% end %>

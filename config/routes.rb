@@ -28,6 +28,11 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:create, :index], module: :users
 
+  get "/bonus", to: "homepage#bonus", as: "bonus"
+
+
+
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   # Example of regular route:
