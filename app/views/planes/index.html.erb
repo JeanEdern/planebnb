@@ -14,8 +14,9 @@
       })
     <% end %>
   <% end %>
-
+  <div class="list padded">
   <% @planes.each do |plane| %>
     <%= render 'plane_profile', plane: plane, booking: @booking %>
   <% end %>
+  </div>
 </div>
