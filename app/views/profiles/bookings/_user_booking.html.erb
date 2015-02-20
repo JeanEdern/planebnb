@@ -54,7 +54,7 @@
         <tr>
           <td>Lien vers le profil de l'utilisateur</td>
           <td>
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            <button id="#modale<%=booking.user.id%>" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
               Voir
             </button>
           </td>
@@ -65,7 +65,7 @@
   </div>
 
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modale<%=booking.user.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
