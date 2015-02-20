@@ -58,6 +58,11 @@ ActiveRecord::Schema.define(version: 20150220083423) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.integer  "price"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "city"
+    t.string   "admin_area"
+    t.string   "address"
     t.string   "second_picture_file_name"
     t.string   "second_picture_content_type"
     t.integer  "second_picture_file_size"
@@ -66,11 +71,6 @@ ActiveRecord::Schema.define(version: 20150220083423) do
     t.string   "third_picture_content_type"
     t.integer  "third_picture_file_size"
     t.datetime "third_picture_updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "city"
-    t.string   "admin_area"
-    t.string   "address"
   end
 
   add_index "planes", ["user_id"], name: "index_planes_on_user_id", using: :btree
