@@ -7,10 +7,15 @@ module Profiles
       @bookings = find_bookings
     end
 
+    def pending
+      @plane = Plane.find(params[:plane_id])
+      @bookings = @plane.bookings
+    end
+
    private
 
     def find_user
-       @user = current_user
+      @user = current_user
     end
 
     def find_bookings

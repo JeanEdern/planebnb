@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150219140610) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "status"
   end
 
   add_index "bookings", ["plane_id"], name: "index_bookings_on_plane_id", using: :btree
@@ -72,7 +73,7 @@ ActiveRecord::Schema.define(version: 20150219140610) do
     t.string   "aeroclub"
     t.date     "licensing"
     t.string   "license_type"
-    t.integer  "flight_hours"
+    t.integer  "fligh_hours"
     t.boolean  "profile_completed"
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",                default: 0,  null: false

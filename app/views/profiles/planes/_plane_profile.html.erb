@@ -68,6 +68,7 @@
             <% end %>
           </td>
         </tr>
+        <%= render 'booking_status', plane: plane %>
         <tr>
           <td>Prix de réservation (indicatif)</td>
           <td><%= plane.price %> <i class="fa fa-eur"></i> </td>

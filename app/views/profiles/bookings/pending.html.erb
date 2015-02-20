@@ -1,0 +1,20 @@
+<div class="container padded">
+  <%= render 'user_booking', bookings: @bookings %>
+</div>
+
+<% content_for :after_js do %>
+
+  <script>
+    $(document).ready(function() {
+      $("[name='status-checkbox']").bootstrapSwitch();
+      $.fn.bootstrapSwitch.defaults.onColor = 'success';
+      $.fn.bootstrapSwitch.defaults.state = 'false';
+    })
+    $.fn.bootstrapSwitch.defaults.size = 'large';
+    $.fn.bootstrapSwitch.defaults.labelText = 'Accepter';
+    $.fn.bootstrapSwitch.defaults.onText = 'Oui';
+    $.fn.bootstrapSwitch.defaults.offText = 'Non';
+    $.fn.bootstrapSwitch.defaults.onColor = 'success';
+    $.fn.bootstrapSwitch.defaults.offColor = 'danger';
+  </script>
+<% end %>

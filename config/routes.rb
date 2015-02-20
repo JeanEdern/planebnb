@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   resources :planes, only: [:index, :show]
 
+  get "/planes/:plane_id/bookings/pending", to: "profiles/bookings#pending", as: "pending"
+
   resources :bookings, only: [:create, :index], module: :users
 
   # You can have the root of your site routed with "root"

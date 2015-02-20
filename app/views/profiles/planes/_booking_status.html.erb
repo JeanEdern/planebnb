@@ -1,0 +1,14 @@
+<% if @bookings != nil && @bookings.flatten.select {|element| element.plane_id == plane.id }.first != nil && @bookings.flatten.select {|element| element.plane_id == plane.id }.first.status == true %>
+  <tr>
+    <td class="bg-green">
+      <strong>
+        Demandes de réservation
+      </strong>
+    </td>
+    <td class="bg-green">
+      <strong>
+        <%= link_to "Voir", pending_path(plane), :class => "btn btn-primary btn-black" %>
+      </strong>
+    </td>
+  </tr>
+<% end %>

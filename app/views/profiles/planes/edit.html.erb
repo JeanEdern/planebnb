@@ -1,5 +1,9 @@
-
 <div class="container padded">
+  <% if @bookings != nil %>
+    <h2>Réservations proposées</h2>
+    <%= render 'plane_booking_list' %>
+  <% end %>
+
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <h2>Mettre à jour l'annonce</h2>
