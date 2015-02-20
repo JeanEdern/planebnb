@@ -1,6 +1,32 @@
 <div class="row">
     <div class="col-sm-2 right">
-        <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+      <div class="carousel slide">
+        <div class="carousel-inner">
+          <div class="item active">
+            <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+            <div class="carousel-caption"></div>
+          </div>
+          <div class="item">
+            <% if plane.second_picture? %>
+            <%= image_tag plane.second_picture.url(:medium),  class: "img-thumbnail" %>
+            <% else %>
+            <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+            <% end %>
+          </div>
+          <div class="item">
+            <% if plane.third_picture? %>
+            <%= image_tag plane.third_picture.url(:medium),  class: "img-thumbnail" %>
+            <% else %>
+            <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+<!--
+      <%= image_tag plane.picture.url(:medium),  class: "img-thumbnail" %>
+ -->
     </div>
     <div class="col-md-7 col-md-offset-1">
       <div>
@@ -19,6 +45,10 @@
         <tr>
           <td>Aeroclub de base</td>
           <td><%= plane.aeroclub %></td>
+        </tr>
+        <tr>
+          <td>Aérodrome</td>
+          <td><%= plane.address %></td>
         </tr>
         <tr>
           <td>Nombre de sièges</td>
