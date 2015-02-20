@@ -22,7 +22,7 @@ module Profiles
     end
 
     def create
-      @plane = @user.planes.build(planes_params)
+      @plane = @user.planes.build(planes_params_create)
       @plane.available = true
       if @plane.save
         redirect_to profile_plane_path(@plane)
@@ -39,7 +39,7 @@ module Profiles
     def update
       @plane = @user.planes.find(params[:id])
       @bookings = @plane.bookings
-      if @plane.update_attributes(planes_params)
+      if @plane.update_attributes(planes_params_update)
         redirect_to :action => 'show', :id => @plane.id
       else
         render :action => 'edit'
@@ -54,9 +54,17 @@ module Profiles
 
   private
 
-  def planes_params
-    params.require(:booking).permit(:plane_id, :status)
+  def planes_params_create
     params.require(:plane).permit(:description, :seat, :aeroclub, :available, :created_at, :updated_at, :price, :picture, :second_picture, :third_picture, :city, :admin_area, :address, :latitude, :longitude)
+  end
+
+  def planes_params_update
+    if params['booking'] == nil
+      params.require(:plane).permit(:description, :seat, :aeroclub, :available, :created_at, :updated_at, :price, :picture, :second_picture, :third_picture, :city, :admin_area, :address, :latitude, :longitude)
+    else
+      params.require(:booking).permit(:plane_id, :status)
+      params.require(:plane).permit(:description, :seat, :aeroclub, :available, :created_at, :updated_at, :price, :picture, :second_picture, :third_picture, :city, :admin_area, :address, :latitude, :longitude)
+    end
   end
 
   def find_user
