@@ -9,6 +9,11 @@ module Profiles
       @markers = Gmaps4rails.build_markers(@planes) do |plane, marker|
         marker.lat plane.latitude
         marker.lng plane.longitude
+        marker.picture({
+          url: view_context.image_path("logo.svg"),
+          width: 100,
+          height: 100})
+        marker.title plane.price.to_s
       end
     end
 
