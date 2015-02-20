@@ -19,3 +19,4 @@
 
 //= require autocomplete
 //= require carousel
+//= require bootstrap-switch.js
