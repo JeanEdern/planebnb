@@ -2,16 +2,16 @@
 
 <div class="container-fluid padded">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-10 col-md-offset-2">
 
 
     <div class="user-profile">
       <!-- link to profile_picture -->
-      <div class="col-sm-4 right">
-        <%= image_tag profile_picture(:medium), class: "img-circle" %>
+      <div class="col-sm-2 right">
+        <%= image_tag profile_picture(:medium), class: "img-thumbnail" %>
       </div>
 
-      <div class="col-sm-6">
+      <div class="col-sm-8">
         <div class="left-padded">
           <% if @user.firstname || @user.lastname %>
             <h1><%= @user.firstname.capitalize %> <%= @user.lastname.capitalize %></h1>
@@ -19,24 +19,42 @@
 
           <br><br>
 
-          <dl class="dl-horizontal">
-            <dt>Email</dt>
-            <dd><%= @user.email %></dd>
-            <dt>Phone number</dt><dd><%= @user.phone_number %></dd>
-            <dt>Pilot</dt><dd>
-              <% if @user.pilot %>
-                <i class="fa fa-check"></i>
-              <% else %>
-                <i class="fa fa-times"></i>
-              <% end %>
-             </dd>
-            <dt>Description</dt><dd><%= @user.description %></dd>
-            <dt>Aeroclub</dt><dd><%= @user.aeroclub %></dd>
-            <dt>Licensing</dt><dd><%= @user.licensing %></dd>
-            <dt>License type</dt><dd><%= @user.license_type %></dd>
-            <dt>Flight hours</dt><dd><%= @user.flight_hours %></dd>
-          </dl>
-          <%= link_to "Update profile", edit_user_registration_path, class: "btn btn-success pull-right" %>
+          <table class="table table-striped">
+            <tr>
+              <td>Email</td>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <td>Phone number</td>
+              <td><%= @user.phone_number %></td>
+            </tr>
+            <tr>
+              <td>Pilot</td>
+              <td>
+                <% if @user.pilot %>
+                  <i class="fa fa-check"></i>
+                <% else %>
+                  <i class="fa fa-times"></i>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td><%= @user.description %></td>
+            </tr>
+            <tr>
+              <td>Aeroclub</td>
+              <td><%= @user.aeroclub %></td>
+            </tr>
+            <tr>
+              <td>Flight hours</td>
+              <td><%= @user.flight_hours %></td>
+            </tr>
+            <tr>
+              <td>Update your profile</td>
+              <td><%= link_to "Update profile", edit_user_registration_path, class: "btn btn-success pull-right" %></td>
+            </tr>
+          </table>
         </div>
       </div>
   </div>
